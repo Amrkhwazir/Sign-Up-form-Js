@@ -12,79 +12,89 @@
 
 <body>
 
-    <!-- <div class="container">
-    </div> -->
-
-    <!-- login in -->
-
+  
+  <!-- login in -->
+  
+  <div class="container-fluid d-flex justify-content-around  pt-5">
     <div class="container d-flex flex-column align-items-center" style="border: 1px solid whitesmoke;
-    box-shadow: 1px 1px 5px 3px rgb(233, 233, 239); width: 38%; height: 480px; padding-top: 70px; margin:40px 650px; background-color: white;">
-        <div class="mb-3" style="width: 400px;">
+    box-shadow: 1px 1px 5px 3px rgb(208, 208, 209); width: 35%; height: 490px; padding-top: 25px; background-color: white;">
+        
+        <h1 style="margin-bottom: 25px;">Logo Here</h1>
+        <div class="container mb-3" >
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com">
           </div>
-          <div class="mb-3 p" style="width: 400px;">
+          <div class="container mb-3">
             <label for="exampleFormControlinput2" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
           </div>
-          <button type="button" class="btn btn-primary m-2" style="width: 250px;" >log in</button>
-          <p class="btn btn-link">Forgotten Password?</p>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          <button type="button" class="container btn btn-primary m-2 " id="loginBtn" style="width: 250px;" >log in</button>
+          <p>or</p>
+          <button type="button" class="btn btn-success" id="createAccountBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"
           data-bs-whatever="@mdo" style="width: 250px;">Create an Account</button>
           <div class="container mt-4 d-flex justify-content-center gap-4">
             <i style="font-size: 25px; cursor: pointer;" class="bi bi-facebook text-primary"></i>
             <i style="font-size: 25px; color: goldenrod; cursor: pointer;" class="bi bi-google"></i>
             <i style="font-size: 25px; color: rgb(96, 207, 255); cursor: pointer;" class="bi bi-twitter"></i>
           </div>
-    </div>
+        </div>
+          <div class="img" style="width: 600px; height: 100%; padding-top: 30px;">
+            <img style="width: 100%; height: 100%;" src="./Assets/main logo.png" alt="" >
+          </div>
+      </div>
 
                 
-                    <!-- SignupModal -->
-
+        <!-- SignupModal -->
+        
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
-              <div class="modal-content">
+            <div class="modal-content">
                   <div class="modal-header modalHeading_S d-flex flex-column align-items-start">
                       <h5 class="modal-title" id="exampleModalLabel">SignUp</h5>
                       <h6 class="modal-title" id="exampleModalLabel">It's quick and easy</h6>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      <form>
-                        <div class="mb-3 d-flex gap-2">
-                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
-                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+                    <form>
+                        <div class="container-fluid mb-3 d-flex gap-3">
+                          <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                          <input type="text" class="form-control" id="lastName" placeholder="Last Name">
                         </div>  
-                        <div class="mb-3 d-flex gap-2">
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email address">
-                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+                        <div class="container-fluid mb-3 d-flex gap-3">
+                          <input type="email" class="form-control" id="signEmail" placeholder="Email address">
+                          <input type="password" class="form-control" id="signPassword" placeholder="Password">
                         </div>  
-                        <div class="mb-3 d-flex gap-2">
-                          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Phone number">
+                        <div class="container-fluid mb-3 d-flex gap-3">
+                          <input type="number" class="form-control" id="phoneNumber" placeholder="Phone number">
                         </div>  
-                        <div class="mb-3 d-flex gap-2">
-                          <input type="date" class="form-control" id="exampleFormControlInput1" >
+                        <div class="container-fluid mb-3 d-flex gap-3">
+                          <input type="date" class="form-control" id="dateTime" >
                         </div>  
-                        <div class="form-check">
-                          
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Male</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Female</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                            <label class="form-check-label" for="inlineCheckbox3">Custom</label>
-                          </div>
+
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="male" value="male">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="female" value="female">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Female
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="custom" value="custom">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Custom
+                          </label>
+                        </div>
 
                       </form>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" id="signup">Signup</button>
+                      <button type="button" class="btn btn-primary" id="signupBtn">Signup</button>
                   </div>
               </div>
           </div>
