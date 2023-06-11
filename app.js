@@ -28,15 +28,21 @@ function loginHandler() {
 
     const loginUserFound = userArr.filter((user)=> {
         // console.log("login user email found " + loginEmail.value)
-         return    user.email == loginEmail.value
+         return    user.email === loginEmail.value
+    })
+    
+    if(!loginUserFound.length) return alert("This user is not registered")
+
+    const loginUserFoundPassword = userArr.filter((user)=> {
+        // console.log("login user email found " + loginEmail.value)
+         return    user.password === loginPassword.value
     })
 
-    if(!loginUserFound.lenght) return alert("This user is not registered")
 
 
-    if(loginUserFound.email == loginEmail.value && loginUserFound.password == loginPassword.value){
+    if(loginUserFoundPassword[0].password === loginPassword.value){
         alert("user is logged in")
-    // localStorage.setItem('activeUser', JSON.stringify(loginUserFound[0]))
+    localStorage.setItem('activeUser', JSON.stringify(loginUserFound[0]))
     
 }else{
         alert("incorrect email and password")
