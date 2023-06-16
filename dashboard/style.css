@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#navbar{
+    background-color: whitesmoke !important;
+    position: fixed !important;
+    z-index: 1 !important;
+}
+.navbar-brand i{
+    color: blueviolet;
+    font-size: 40px;
+}
+#searchBar{
+width: 350px;
+/* background-color: gray; */
+}
+#searchBar:focus{
+    border: 5px solid blueviolet !important;
+}
+.nav-item-li{
+    position: relative;
+    background-color: white;
+    margin-left: 8px;
+    border-radius: 100%;
+    height: 36px;
+    width: 36px;
+  padding-left: 1px;
+    margin-top: 7px;
+    
+}
+.nav-item-li i{
+    position: absolute;
+    font-size: 18px;
+    color: gray;
+}
+.nav-item-li:hover i{
+    color: blueviolet;
+}
+.dropdown-menu{
+    background-color: gray !important;
+}
+.dropdown-menu li a{
+    color: white;
+    
+
+}
+.dropdown-menu li a i{
+    color: white;
+    margin-right: 6px !important;
+}
+.dropdown-menu li:hover a i{
+    color: gray;
+}
+#displayBox{
+    padding-top: 80px;
+}
