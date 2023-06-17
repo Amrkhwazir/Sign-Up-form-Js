@@ -32,12 +32,15 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-4">
               <li class="nav-item nav-item-li">
                 <a class="nav-link active" aria-current="page" href="#"><i class="fa-sharp fa-solid fa-house"></i></a>
+                <p id="homeText">Home</p>
               </li>
               <li class="nav-item nav-item-li">
                 <a class="nav-link" href="#"><i class="fa-solid fa-bell"></i></a>
+                <p>notification</p>
               </li>
               <li class="nav-item nav-item-li">
                 <a class="nav-link" href="#"><i class="fa-solid fa-message"></i></a>
+                <p id="messageText">message</p>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,8 +65,55 @@
           <div class="col border border-primary">
             Column
           </div>
-          <div class="col-6 border border-primary mx-3">
-            Column
+          <!-- 2nd column -->
+
+          <div class="col-6 border border-primary mx-3 p-4">
+            <div class="container postBox  rounded-3">
+                <img src="../Assets/profile pic.jfif" alt="" width="40px" height="40px">
+                <input id="postInputBar" class="container" data-bs-toggle="modal" data-bs-target="#exampleModal" type="text" placeholder="what's on your mind,">
+              
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content ">
+                      <div class="modal-header">
+                        <h1 class="modal-title container mx-5 fs-5 text-light text-center" id="exampleModalLabel">Create a Post</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                  
+                      <div class="modalPostArea container bg-light text-start">
+                        <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+                       <p class="userName">Amir khan</p>
+                        <p>Post to everyone</p>
+                        <textarea name="" id="" class="container" placeholder="What do you want to post about?"></textarea>                      
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-light container fw-bold" data-bs-dismiss="modal">Post</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <li class="list-group-item bg-light"><hr></li>
+                <div class="multipleIconBox d-flex justify-content-around pt-2">
+                <div class=" mediaIcon d-flex gap-1">
+                  <i class="fa-solid fa-image"></i>
+                  <p>Photos</p>
+                </div>
+                <div class=" mediaIcon d-flex gap-1">
+                  <i class="fa-solid fa-video"></i>
+                  <p>Videos</p>
+                </div>
+                <div class=" mediaIcon d-flex gap-1">
+                  <i class="fa-solid fa-icons"></i>
+                  <p>Activity</p>
+                </div>
+                <div class=" mediaIcon d-flex gap-1">
+                  <i class="fa-solid fa-newspaper"></i>
+                  <p>Article</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col border border-primary">
             Column
