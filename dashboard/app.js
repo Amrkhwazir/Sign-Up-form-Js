@@ -70,3 +70,36 @@ postBtn.addEventListener('click', ()=> {
     textPost.value = ''
 
 })
+
+// userdetailArea
+
+let activeUserName = document.querySelector('.userDetailName')
+let activeUserEmail = document.querySelector('.userEmail')
+
+activeUserName.innerHTML = `${activeUser.firstName} ${activeUser.lastName}`;
+activeUserEmail.innerHTML = `${activeUser.email}` 
+
+
+
+// messanger shown display
+
+let messangerIcon = document.querySelector('.messageIcon')
+let meassangerBox = document.querySelector('.massangerBox');
+
+messangerIcon.addEventListener('click', messangerDisplayHandler);
+
+function messangerDisplayHandler(){
+
+  meassangerBox.style.display = "block";
+}
+
+// messanger close display
+
+let btnClose = document.querySelector('.closeBtn');
+
+btnClose.addEventListener('click', messangerCloseHandler);
+
+function messangerCloseHandler() {
+  
+  meassangerBox.style.display = "none";
+}

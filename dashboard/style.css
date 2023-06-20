@@ -224,6 +224,9 @@ color: rgb(50, 94, 255);
  .col{
     background-color: rgb(243, 243, 243);
  }
+ #ContentBox{
+    background-color: white;
+ }
 
  /* userdetailArea */
  .userDetailArea{
@@ -235,7 +238,7 @@ color: rgb(50, 94, 255);
      font-weight: 500;
  }
  .background{
-    height: 70px;
+    height: 80px;
     background-color: rgb(67, 67, 67);
     color: white;
     font-weight: 500;
@@ -243,7 +246,49 @@ color: rgb(50, 94, 255);
  }
  .userDetailArea img{
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 98px;
     width: 60px;
+ }
+ .profileBtn{
+    background-color: rgb(67, 67, 67);
+    font-weight: 700;
+    color: white;
+    transition: 1s all ease;
+ }
+ .profileBtn:active{
+    background-color: rgb(67, 67, 67);
+    opacity: 0.1;
+    transform: scale(0.8);
+ }
+ .activityList li{
+list-style-type: none;
+margin-bottom: 18px;
+font-weight: 500;
+ }
+
+ /* notificationArea */
+
+ 
+.massangerBox{
+    display: none;
+    background-color: white;
+    color: white;
+}
+.inboxChat{
+    background-color: rgb(77, 77, 77);
+    height: 55px;
+    cursor: pointer;
+}
+ #status{
+bottom: -10px;
+left: 60px;
+font-size: 13px;
+ }
+ .closeBtn{
+    top: 0px;
+    right: 8px;
+    font-size: 32px;
+    background: none;
+    border: none;
  }

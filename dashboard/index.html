@@ -39,7 +39,7 @@
                 <p>notification</p>
               </li>
               <li class="nav-item nav-item-li">
-                <a class="nav-link" href="#"><i class="fa-solid fa-message"></i></a>
+                <a class="nav-link messageIcon" href="#" ><i class="fa-solid fa-message"></i></a>
                 <p id="messageText">message</p>
               </li>
               <li class="nav-item dropdown">
@@ -62,19 +62,31 @@
      
     <div class="container text-center" id="displayBox">
         <div class="row mt-3">
+          <!-- 1st column -->
+
           <div class="col">
             <div class="userDetailArea mt-5">
               <div class="background position-relative border border-dark">
-                <p id="follower" class="position-absolute top-50 mx-2">0 follower</p>
-                <p id="following" class=" position-absolute top-50 end-0 mx-2"> 0 following  
+                <p id="follower" class="position-absolute bottom-0 mx-2">0 follower</p>
+                <p id="following" class=" position-absolute bottom-0 end-0 mx-2"> 0 following  
                 </p>
               </div>
-              <div class="activeUserDetail">
+              <div class="activeUserDetail p-3 mt-1">
                 <img class="userImg" src="../Assets/profile pic.jfif" alt="">
-                <p class="userDetailName m-1 pt-3">Amir khan</p>
+                <h5 class="userDetailName m-1">Amir khan</h5>
+                <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="signupBtn">Profile</button>
                 <p class="userEmail m-1">Amir1234556@gmail.com</p>
-                <p class="userDetail mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
+                <p class="userDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
               </div>
+            </div>
+             
+            <div class="activityList mt-4">
+              <li class=""><a href="#"></a>Group's</li>
+              <li><a href="#"></a>Pages</li>
+              <li><a href="#"></a>Activity</li>
+              <li><a href="#"></a>Setting</li>
+              <li><a href="#"></a>Privacy</li>
+              <li><a href="#"></a>Account</li>
             </div>
           </div>
           <!-- 2nd column -->
@@ -86,6 +98,7 @@
                 <input id="postInputBar" class="container" data-bs-toggle="modal" data-bs-target="#exampleModal" type="text" placeholder="what's on your mind,">
                 
                 <!-- Modal clicking on input bar of post Section -->
+
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content ">
@@ -155,7 +168,7 @@
 
           <!-- main postArea/ -->
 
-          <div id="ContentBox" class="my-4 bg-light">
+          <div id="ContentBox" class="my-4">
             <div class="postArea container-fluid py-2 rounded-2 d-flex direction-column">
               <img class="userImg" src="../Assets/profile pic.jfif" alt="">
               <p class="userName mt-2">Amir khan</p>
@@ -169,7 +182,40 @@
             </div>
           </div>   
 
-          <div class="col">
+          <div class="col notficationArea">
+
+            <div class="massangerBox container border border-dark mt-5 p-3 rounded-2 position-relative">
+              <h5 style="color: rgb(90, 90, 90);">Messenger chat Box</h5>
+              <button type="button" class="closeBtn position-absolute">x</button>
+              <div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
+                <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                <p class="chatPerson fw-bold">Amir khan</p>
+                <p id="status" class="position-absolute">active</p>
+              </div>
+              <div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
+                <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                <p class="chatPerson fw-bold">Naveed</p>
+                <p id="status" class="position-absolute">active</p>
+              </div>
+              <div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
+                <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                <p class="chatPerson fw-bold">Zakir</p>
+                <p id="status" class="position-absolute">active 1h ago</p>
+              </div><div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
+                <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                <p class="chatPerson fw-bold">John Doe</p>
+                <p id="status" class="position-absolute">active</p>
+              </div><div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
+                <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                <p class="chatPerson fw-bold">Anil Kumar</p>
+                <p id="status" class="position-absolute">active 10h ago</p>
+              </div><div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
+                <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                <p class="chatPerson fw-bold">Rashid</p>
+                <p id="status" class="position-absolute">active 2 minutes ago</p>
+              </div>
+              
+            </div>
             
             
           </div>
