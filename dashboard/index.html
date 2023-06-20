@@ -61,34 +61,72 @@
     <!-- main template -->
      
     <div class="container text-center" id="displayBox">
-        <div class="row ">
-          <div class="col border border-primary">
-            Column
+        <div class="row mt-3">
+          <div class="col">
+            <div class="userDetailArea mt-5">
+              <div class="background position-relative border border-dark">
+                <p id="follower" class="position-absolute top-50 mx-2">0 follower</p>
+                <p id="following" class=" position-absolute top-50 end-0 mx-2"> 0 following  
+                </p>
+              </div>
+              <div class="activeUserDetail">
+                <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+                <p class="userDetailName m-1 pt-3">Amir khan</p>
+                <p class="userEmail m-1">Amir1234556@gmail.com</p>
+                <p class="userDetail mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
+              </div>
+            </div>
           </div>
           <!-- 2nd column -->
-
-          <div class="col-6 border border-primary mx-3 p-4">
+          
+          <div class="col-6 mx-3 p-4">
+             <!-- upper Area of post Section -->
             <div class="container postBox  rounded-3">
                 <img src="../Assets/profile pic.jfif" alt="" width="40px" height="40px">
                 <input id="postInputBar" class="container" data-bs-toggle="modal" data-bs-target="#exampleModal" type="text" placeholder="what's on your mind,">
-              
-                <!-- Modal -->
+                
+                <!-- Modal clicking on input bar of post Section -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content ">
                       <div class="modal-header">
                         <h1 class="modal-title container mx-5 fs-5 text-light text-center" id="exampleModalLabel">Create a Post</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close rounded-5" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                  
+
                       <div class="modalPostArea container bg-light text-start">
                         <img class="userImg" src="../Assets/profile pic.jfif" alt="">
-                       <p class="userName">Amir khan</p>
-                        <p>Post to everyone</p>
-                        <textarea name="" id="" class="container" placeholder="What do you want to post about?"></textarea>                      
+                       <p class="userName"></p>
+                        <p class="userDisc">Post to everyone</p>
+                        <textarea id="textPost" class="container bg-light" placeholder="What do you want to post about?"></textarea>                      
+                      </div>
+                      <div class="modalMediaBox bg-light container-fluid d-flex justify-content-around">
+                        <div class="innerMediaBox ">
+                  <input type="file" name="" id="inputFileUpload">
+                          <i class="fa-solid fa-image" id="photoIcon"></i>
+                          <p>Photo/video</p>
+                        </div>
+                        <div class="innerMediaBox">
+                  <input type="file" name="" id="inputFileUpload">
+                          <i class="fa-solid fa-video"></i>
+                          <p>live video</p>
+                        </div>
+                        <div class="innerMediaBox">
+                          <i class="fa-solid fa-location-dot"></i>
+                          <p>Check in</p>
+                        </div>
+                        <div class="innerMediaBox">
+                  <input type="file" name="" id="inputFileUpload">
+                          <i class="fa-solid fa-music"></i>
+                          <p>Music</p>
+                        </div>
+                        <div class="innerMediaBox">
+                          <i class="fa-regular fa-face-smile"></i>
+                          <p>Feeling</p>
+                        </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-light container fw-bold" data-bs-dismiss="modal">Post</button>
+                        <button type="button" id="postBtn" class="btn btn-light container fw-bold" data-bs-dismiss="modal">Post</button>
                       </div>
                     </div>
                   </div>
@@ -97,7 +135,7 @@
                 <li class="list-group-item bg-light"><hr></li>
                 <div class="multipleIconBox d-flex justify-content-around pt-2">
                 <div class=" mediaIcon d-flex gap-1">
-                  <i class="fa-solid fa-image"></i>
+                  <i type="file" class="fa-solid fa-image"></i>
                   <p>Photos</p>
                 </div>
                 <div class=" mediaIcon d-flex gap-1">
@@ -114,9 +152,26 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col border border-primary">
-            Column
+
+          <!-- main postArea/ -->
+
+          <div id="ContentBox" class="my-4 bg-light">
+            <div class="postArea container-fluid py-2 rounded-2 d-flex direction-column">
+              <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+              <p class="userName mt-2">Amir khan</p>
+              <p id="postTime">10h</p>
+              <p class="postText mt-2">Lorem ipsum dolor sit amet consectetur adipisicing 
+                elit.</p>
+            </div>
+            <div class="postImage mt-4">
+              <img class="img-fluid" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
+            </div>
+            </div>
+          </div>   
+
+          <div class="col">
+            
+            
           </div>
         </div>
       </div>
