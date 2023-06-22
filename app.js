@@ -43,7 +43,7 @@ function loginHandler() {
     if(loginUserFoundPassword[0].password === loginPassword.value){
         alert("user is logged in")
     localStorage.setItem('activeUser', JSON.stringify(loginUserFound[0]))
-    location.href = "/dashboard/index.html";
+    location.href = "./dashboard/index.html";
     
 }else{
         alert("incorrect email and password")

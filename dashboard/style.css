@@ -262,11 +262,28 @@ color: rgb(50, 94, 255);
     transform: scale(0.8);
  }
  .activityList li{
+    display: flex;
 list-style-type: none;
 margin-bottom: 18px;
 font-weight: 500;
+height: 40px;
+transition: 1s all ease;
+padding-top: 5px;
+padding-left: 10px;
+cursor: pointer;
+border-radius: 5px;
  }
 
+
+ .activityList li i{
+    margin-top: 4px;
+    font-size: 20px;
+     color: rgb(65, 222, 170);
+ }
+ .activityList li:hover{
+  background-color: rgb(77, 77, 77);
+  color: white;  
+ }
  /* notificationArea */
 
  
