@@ -61,7 +61,7 @@
     <!-- main template -->
      
     <div class="container text-center" id="displayBox">
-        <div class="row mt-3">
+        <div class="row mt-2">
           <!-- 1st column -->
 
           <div class="col">
@@ -115,12 +115,11 @@
                       </div>
                       <div class="modalMediaBox bg-light container-fluid d-flex justify-content-around">
                         <div class="innerMediaBox ">
-                  <input type="file" name="" id="inputFileUpload">
+                         <input type="file" name="" accept=".jpg, .jpeg, .png" id="inputFileUpload">
                           <i class="fa-solid fa-image" id="photoIcon"></i>
                           <p>Photo/video</p>
                         </div>
                         <div class="innerMediaBox">
-                  <input type="file" name="" id="inputFileUpload">
                           <i class="fa-solid fa-video"></i>
                           <p>live video</p>
                         </div>
@@ -177,15 +176,15 @@
                 elit.</p>
             </div>
             <div class="postImage mt-4">
-              <img class="img-fluid" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
+              <img class="img-fluid" id="postImg" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
             </div>
             </div>
           </div>   
 
           <div class="col notficationArea">
 
-            <div class="massangerBox container border border-dark mt-5 p-3 rounded-2 position-relative">
-              <h5 style="color: rgb(90, 90, 90);">Messenger chat Box</h5>
+            <div class="massangerBox container  mt-5 p-3 position-relative">
+              <h5 style="color: rgb(90, 90, 90);">Messenger</h5>
               <button type="button" class="closeBtn position-absolute">x</button>
               <div class="inboxChat container d-flex align-items-center gap-2 position-relative rounded-3 mt-2">
                 <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
@@ -214,10 +213,58 @@
                 <p class="chatPerson fw-bold">Rashid</p>
                 <p id="status" class="position-absolute">active 2 minutes ago</p>
               </div>
-              
             </div>
-            
-            
+              <!-- friensRequests -->
+
+              <div class="container-fluid friendList mt-3">
+                <h5>Requests</h5>
+                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
+                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                  <p class="reqPerson">Rashid</p>
+                  <p id="mutual" class="position-absolute">8 mutual friends</p>
+                  <div class="btn d-flex gap-2">
+                    <button class="accept">Accept</button>
+                    <button class="reject">Reject</button>
+                  </div>
+                </div>
+                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
+                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                  <p class="reqPerson">Naveed</p>
+                  <p id="mutual" class="position-absolute">2 mutual friends</p>
+                  <div class="btn d-flex gap-2">
+                    <button class="accept">Accept</button>
+                    <button class="reject">Reject</button>
+                  </div>
+                </div>
+                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
+                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                  <p class="reqPerson">Nabeel</p>
+                  <p id="mutual" class="position-absolute">5 mutual friends</p>
+                  <div class="btn d-flex gap-2">
+                    <button class="accept">Accept</button>
+                    <button class="reject">Reject</button>
+                  </div>
+                </div>
+                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
+                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                  <p class="reqPerson">Aqib</p>
+                  <p id="mutual" class="position-absolute">9 mutual friends</p>
+                  <div class="btn d-flex gap-2">
+                    <button class="accept">Accept</button>
+                    <button class="reject">Reject</button>
+                  </div>
+                </div>
+                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
+                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
+                  <p class="reqPerson">Rayyan</p>
+                  <p id="mutual" class="position-absolute">10 mutual friends</p>
+                  <div class="btn d-flex gap-2">
+                    <button class="accept">Accept</button>
+                    <button class="reject">Reject</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

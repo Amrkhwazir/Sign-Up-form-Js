@@ -8,7 +8,7 @@ let ContentBox = document.getElementById('ContentBox');
 
 // userdetail
 let userName = document.querySelector('.userName');
-console.log(userName.innerHTML)
+// console.log(userName.innerHTML)
 let postText = document.querySelector('.postText');
 let userImg = document.querySelector('.userImg');
 
@@ -17,6 +17,19 @@ let userImg = document.querySelector('.userImg');
 
 const time = new Date().getHours()
 // console.log(time)
+
+const postImageDisplay = document.getElementById('postImg');
+
+inputFileUpload.addEventListener('change',()=>{
+  const file = inputFileUpload.files[0];
+  const reader = new FileReader();
+
+  reader.addEventListener('load',()=>{
+    postImageDisplay.src = reader.result
+
+  })
+
+})
 
 const activeUser = JSON.parse(localStorage.getItem('activeUser')) || [];
 // console.log(activeUser);
@@ -63,7 +76,7 @@ postBtn.addEventListener('click', ()=> {
     <p class="postText mt-2">${textPost.value}</p>
   </div>
   <div class="postImage mt-4">
-    <img class="img-fluid" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
+    <img class="img-fluid" id="postImg" src="" alt="">
   </div>
     `
     ContentBox.prepend(div)

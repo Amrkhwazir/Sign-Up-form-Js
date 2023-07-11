@@ -87,6 +87,8 @@ width: 350px;
 
 /* main template */
 .col-6{
+    height: 600px !important;
+    overflow-y: auto;
     background-color: rgb(243, 243, 243);
 }
 .postBox{
@@ -96,7 +98,7 @@ width: 350px;
     background-color: rgb(67, 67, 67);
 }
 #postInputBar{
-    width: 450px !important;
+    width: 430px !important;
     height: 40px;
     margin-bottom: 0px;
     /* margin-top: 8px; */
@@ -222,6 +224,8 @@ color: rgb(50, 94, 255);
  }
 
  .col{
+    height: 600px !important;
+    overflow-y: auto;
     background-color: rgb(243, 243, 243);
  }
  #ContentBox{
@@ -244,12 +248,20 @@ color: rgb(50, 94, 255);
     font-weight: 500;
     border-radius: 10px 10px 0px 0px;
  }
+ #follower{
+    font-size: 14px !important;
+ }
+ #following{
+    font-size: 14px !important;
+ }
  .userDetailArea img{
     position: absolute;
     top: 30px;
-    right: 98px;
+    right: 90px;
     width: 60px;
+    border-radius: 50%;
  }
+
  .profileBtn{
     background-color: rgb(67, 67, 67);
     font-weight: 700;
@@ -284,9 +296,8 @@ border-radius: 5px;
   background-color: rgb(77, 77, 77);
   color: white;  
  }
- /* notificationArea */
 
- 
+ /* notificationArea */
 .massangerBox{
     display: none;
     background-color: white;
@@ -308,4 +319,40 @@ font-size: 13px;
     font-size: 32px;
     background: none;
     border: none;
+ }
+ .friendListBox{
+    height: 90px;
+    background-color: white;
+ }
+ 
+ .friendListBox .reqPerson{
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    font-weight: 500;
+ }
+ 
+ .friendListBox #mutual{
+    position: absolute;
+    top: 28px;
+    left: 60px;
+    font-size: 14px;
+}
+ 
+ .friendListBox .btn{
+    position: absolute;
+    left: 10px;
+    bottom: 6px;
+ }
+ 
+ .friendListBox .btn button{
+    width: 80px;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+ }
+ .friendListBox .btn .accept{
+    background-color: rgb(28, 212, 150) !important;
  }
