@@ -71,11 +71,11 @@
                 <p id="following" class=" position-absolute bottom-0 end-0 mx-2"> 0 following  
                 </p>
               </div>
-              <div class="activeUserDetail p-3 mt-1">
+              <div class="activeUserDetail p-3 mt-1" id="userinfo">
                 <img class="userImg" src="../Assets/profile pic.jfif" alt="">
-                <h5 class="userDetailName m-1">Amir khan</h5>
-                <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="signupBtn">Profile</button>
-                <p class="userEmail m-1">Amir1234556@gmail.com</p>
+                <h5 class="userDetailName m-1"></h5>
+                <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="profileButton">Profile</button>
+                <p class="userEmail m-1"></p>
                 <p class="userDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
               </div>
             </div>
@@ -93,8 +93,8 @@
           
           <div class="col-6 mx-3 p-4">
              <!-- upper Area of post Section -->
-            <div class="container postBox  rounded-3">
-                <img src="../Assets/profile pic.jfif" alt="" width="40px" height="40px">
+            <div class="postBox rounded-3">
+                <img class="rounded-5" src="../Assets/profile pic.jfif" alt="" max-width="40px" height="40px">
                 <input id="postInputBar" class="container" data-bs-toggle="modal" data-bs-target="#exampleModal" type="text" placeholder="what's on your mind,">
                 
                 <!-- Modal clicking on input bar of post Section -->
@@ -269,7 +269,7 @@
         </div>
       </div>
 
-      <script src="app.js"></script>
+      <script type="module" src="app.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 

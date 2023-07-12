@@ -93,12 +93,12 @@ width: 350px;
 }
 .postBox{
     position: relative;
-    /* width: 500px !important; */
+    /* max-width:500px !important; */
     height: 110px;
     background-color: rgb(67, 67, 67);
 }
 #postInputBar{
-    width: 430px !important;
+    max-width: 400px !important;
     height: 40px;
     margin-bottom: 0px;
     /* margin-top: 8px; */

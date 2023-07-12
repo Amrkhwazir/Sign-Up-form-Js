@@ -1,4 +1,4 @@
-import { auth,app,db,getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,doc,setDoc } from "./firebaseConfig.js";
+import { auth, app, db, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, doc, setDoc,Timestamp} from "./firebaseConfig.js";
 
 // let gender;
 // login
@@ -50,7 +50,8 @@ async function signUpnHandler() {
 try {
     const response =  await createUserWithEmailAndPassword(auth, signEmail.value, signPassword.value)
    // Signed in 
-   console.log(response,"user milgyaa")
+//    console.log(response,"user milgyaa")
+   alert("user rigestered")
    
    if(response.user){
         adddata(response.user.uid)
@@ -74,6 +75,8 @@ async function adddata(uid){
             password: signPassword.value,
             phnNumber : phoneNumber.value,
             dOB : dateTime.value,
+            id : uid,
+            time: Timestamp.fromDate(new Date())
         });
 
         // console.log("Document written with ID: ", docRef.uid);
