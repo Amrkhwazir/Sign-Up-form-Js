@@ -76,7 +76,7 @@ async function adddata(uid){
             phnNumber : phoneNumber.value,
             dOB : dateTime.value,
             id : uid,
-            time: Timestamp.fromDate(new Date())
+            time: Timestamp.fromDate(new Date().getTime())
         });
 
         // console.log("Document written with ID: ", docRef.uid);

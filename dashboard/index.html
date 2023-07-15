@@ -112,10 +112,13 @@
                        <p class="userName"></p>
                         <p class="userDisc">Post to everyone</p>
                         <textarea id="textPost" class="container bg-light" placeholder="What do you want to post about?"></textarea>                      
+                      <!-- <div id="displayImage">
+                        
+                      </div> -->
                       </div>
                       <div class="modalMediaBox bg-light container-fluid d-flex justify-content-around">
                         <div class="innerMediaBox ">
-                         <input type="file" name="" accept=".jpg, .jpeg, .png" id="inputFileUpload">
+                         <input type="file" name="" accept=".png, .jpg" id="image_input">
                           <i class="fa-solid fa-image" id="photoIcon"></i>
                           <p>Photo/video</p>
                         </div>
@@ -128,7 +131,6 @@
                           <p>Check in</p>
                         </div>
                         <div class="innerMediaBox">
-                  <input type="file" name="" id="inputFileUpload">
                           <i class="fa-solid fa-music"></i>
                           <p>Music</p>
                         </div>
@@ -168,17 +170,19 @@
           <!-- main postArea/ -->
 
           <div id="ContentBox" class="my-4">
-            <div class="postArea container-fluid py-2 rounded-2 d-flex direction-column">
+            <div class="postArea mb-3">
+            <div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
               <img class="userImg" src="../Assets/profile pic.jfif" alt="">
               <p class="userName mt-2">Amir khan</p>
               <p id="postTime">10h</p>
               <p class="postText mt-2">Lorem ipsum dolor sit amet consectetur adipisicing 
                 elit.</p>
             </div>
-            <div class="postImage mt-4">
-              <img class="img-fluid" id="postImg" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
+            <div class="postImage mt-4" id="displayImage">
+              
             </div>
             </div>
+          </div>
           </div>   
 
           <div class="col notficationArea">
