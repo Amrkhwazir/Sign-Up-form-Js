@@ -42,6 +42,12 @@ onAuthStateChanged(auth, (activeUser) => {
 });
 
 
+const profileButton = document.getElementById("profileButton");
+profileButton.addEventListener("click",()=>{
+  window.location.href = "../userprofile/profile.html"
+})
+
+
 
 async function getUserData(uid){
   try {
@@ -51,6 +57,7 @@ async function getUserData(uid){
 if (docSnap.exists()) {
   // console.log("Document data:", docSnap.data());
   const {firstName,lastName,email} = docSnap.data();
+  console.log(firstName,lastName,email)
   // console.log(time)
   userinfo.innerHTML = ` <img class="userImg" src="../Assets/profile pic.jfif" alt="">
   <h5 class="userDetailName m-1">${firstName} ${lastName}</h5>
@@ -60,9 +67,6 @@ if (docSnap.exists()) {
 </div>`
 
 userName.innerHTML = `${firstName}${lastName}`;
-
-
-
 } else {
   // docSnap.data() will be undefined in this case
   console.log("No such document!");
@@ -152,10 +156,10 @@ let div = document.createElement('div');
   <p class="postText mt-2">${postData}</p>
 </div>
 <div class="postImage mt-4">
-  ${url}
+<img class="img-fluid" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
 </div>
   `
-  ContentBox.prepend(div)
+  ContentBox.appendChild(div)
   textPost.value = ''
   
 });

@@ -1,7 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import {
-    getFirestore, collection, addDoc, setDoc, doc, query, where, getDocs, getDoc, Timestamp,
+    getFirestore, collection, addDoc, setDoc, doc, query, where, getDocs, getDoc,
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 
@@ -37,5 +37,4 @@ export {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
-    Timestamp
 };

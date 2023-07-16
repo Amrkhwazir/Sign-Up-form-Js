@@ -220,13 +220,13 @@ color: rgb(50, 94, 255);
     top: 50px;
     left: 15px;
  }
- .postImage{
+ /* .postImage{
     width: 100%;
     height: 300px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
- }
+ } */
  #image_input{
     display: none;
  }

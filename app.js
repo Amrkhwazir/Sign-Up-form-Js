@@ -1,7 +1,4 @@
-import { auth, app, db, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, doc, setDoc,Timestamp} from "./firebaseConfig.js";
-
-// let gender;
-// login
+import { auth, app, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, doc, setDoc} from "./firebaseConfig.js";
 
 // inputs
 let loginEmail = document.getElementById('loginEmail');
@@ -11,25 +8,27 @@ let loginPassword = document.getElementById('loginPassword');
 let loginBtn = document.getElementById('loginBtn');
 
 
-loginBtn.addEventListener('click',loginHandler);
 
 function loginHandler() {
 
-    signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
+signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     if(user){
         window.location.href ='./dashboard/index.html';
     }
-    console.log(user,"user logged in")
+    alert("user logged in")
   })
   .catch((error) => {
       const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorMessage)
+    // console.log(errorMessage)
+    alert("user not found")
   });
 };
+
+loginBtn.addEventListener('click',loginHandler);
 
 // signup
 
@@ -43,11 +42,8 @@ let dateTime = document.getElementById('dateTime');
 // buttons
 let signupBtn = document.getElementById('signupBtn');
 
-
-signupBtn.addEventListener('click',signUpnHandler);
-
 async function signUpnHandler() {
-try {
+    try {
     const response =  await createUserWithEmailAndPassword(auth, signEmail.value, signPassword.value)
    // Signed in 
 //    console.log(response,"user milgyaa")
@@ -57,35 +53,36 @@ try {
         adddata(response.user.uid)
 //    console.log(response.user.uid,"user milgyaa")
 
-    }
+}
   }
  catch (error) {
     const errorMessage = error.message;
     console.log(errorMessage)
     
-}
-};
+}};
+
 
 async function adddata(uid){
     try {
-        const docRef = await setDoc(doc(db, "users",uid), {
+        const docRef = await setDoc(doc(db, "users", uid), {
             firstName: firstName.value,
             lastName: lastName.value,
             email: signEmail.value,
             password: signPassword.value,
             phnNumber : phoneNumber.value,
             dOB : dateTime.value,
-            id : uid,
-            time: Timestamp.fromDate(new Date().getTime())
+            id : uid     
         });
 
-        // console.log("Document written with ID: ", docRef.uid);
+        // console.log(firstName,lastName,signEmail,signPassword,dateTime);
+        console.log("Document written with ID: ", docRef.uid);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
     
 }
 
+signupBtn.addEventListener('click',signUpnHandler);
 // function genderHandler(g){
 //     // console.log(g + "handler working")
 //     gender = g
