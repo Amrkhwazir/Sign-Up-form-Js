@@ -58,6 +58,7 @@
           </nav>
     
           <div class="row" id="profileBox">
+
             <!-- 1st column -->
             <div class="col" id="profilePage">
               <div class="userDetailArea mt-5">
@@ -66,16 +67,57 @@
                   <p id="following" class=" position-absolute bottom-0 end-0 mx-2"> 0 following  
                   </p>
                 </div>
-                <div class="activeUserDetail p-3 mt-1" id="userinfo">
+                <div class="activeUserDetail p-3 mt-3" id="userinfo">
                   <img class="userImg" src="../Assets/profile pic.jfif" alt="">
-                  <h5 class="userDetailName m-1">Amir Khan</h5>
-                  <p class="userEmail m-1">amir@mail.com</p>
-                  <p class="userDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
+                  <h5 class="userName m-2"></h5>
+                  <p class="userEmail m-2"></p>
+                  <p class="userDetail m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
+                  <div id="editprofile">
+                    <button id="editBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo">edit Profile</button>
+                  </div>
                 </div>
               </div>
               </div>
               </div>
     
+              <!-- edit profile modal opener -->
+
+               
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                  <div class="modal-header modalHeading_S d-flex flex-column align-items-start" id="modalHeadArea">
+                      <h5 class="modal-title" id="exampleModalLabel">Profile Update</h5>
+                      <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                        <div class="container-fluid mb-3 d-flex gap-3">
+                          <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                        </div>  
+                        <div class="container-fluid mb-3">
+                          <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                        </div>  
+                        <div class="container-fluid mb-3">
+                          <input type="password" class="form-control" id="Password" placeholder="Password">
+                        </div>
+                        <div class="container-fluid mb-4">
+                          <input type="number" class="form-control" id="phoneNumber" placeholder="Phone number">
+                        </div>  
+                        <div class="container-fluid mx-2">
+                         <input type="file" accept=".jpg, .png, .jpeg" id="img-input">
+                        </div>  
+                      </form>
+                  </div>
+                  <div class="modal-footer" id="footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="updateProfileBtn">Update</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
     <script type="module" src="profile.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

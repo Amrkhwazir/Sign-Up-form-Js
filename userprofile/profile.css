@@ -92,7 +92,7 @@ width: 350px;
     background-color: white;
 }
 .activeUserDetail{
-    background-color: white;
+    background-color: whitesmoke;
     font-weight: 500;
 }
 .background{
@@ -100,7 +100,7 @@ width: 350px;
    background-color: rgb(50, 50, 50);
    color: white;
    font-weight: 500;
-   border-radius: 10px 10px 0px 0px;
+   border-radius: 10px 10px 10px 10px;
 }
 #follower{
    font-size: 18px !important;
@@ -118,6 +118,9 @@ width: 350px;
    width: 140px;
    border-radius: 50%;
 }
+.userDetail{
+    max-width: 700px;
+}
 
 .profileBtn:active{
    background-color: rgb(67, 67, 67);
@@ -125,3 +128,44 @@ width: 350px;
    transform: scale(0.8);
 }
 
+/* profile edit */
+
+#editprofile{
+position: relative;
+height: 50px;
+}
+
+#editBtn{
+    position: absolute;
+    right: 10px;
+    width:110px;
+    height: 30px;
+    border: none;
+    background-color: rgb(28, 212, 150);
+    color: white;
+    border-radius: 5px;
+
+}
+
+/* update modal */
+
+#modalHeadArea{
+    position: relative;
+    background-color: rgb(67, 67, 67);
+    color: white;
+    height: 70px;
+}
+
+#modalHeadArea h5{
+position: absolute;
+left: 170px;
+top: 20px;
+}
+
+#closeBtn{
+    background-color: white;
+}
+
+#footer{
+    background-color: rgb(67, 67, 67);
+}

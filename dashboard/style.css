@@ -273,6 +273,10 @@ color: rgb(50, 94, 255);
     color: white;
     transition: 1s all ease;
  }
+ .profileBtn a{
+    text-decoration: none;
+    color: white;
+ }
  .profileBtn:active{
     background-color: rgb(67, 67, 67);
     opacity: 0.1;

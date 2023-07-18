@@ -3,6 +3,9 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import {
     getFirestore, collection, addDoc, setDoc, doc, query, where, getDocs, getDoc,
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getStorage,ref } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+
+
 
 
 const firebaseConfig = {
@@ -17,12 +20,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
 
 
 export {
     auth,
     app,
     db,
+    storage,
     getFirestore,
     collection,
     addDoc,
@@ -37,4 +43,5 @@ export {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
+    ref,
 };

@@ -26,6 +26,7 @@ const image_input = document.getElementById('image_input');
 const userinfo = document.getElementById("userinfo");
 
 let currentActiveUser;
+
 onAuthStateChanged(auth, (activeUser) => {
   if (activeUser) {
       // User is signed in, see docs for a list of available properties
@@ -42,10 +43,6 @@ onAuthStateChanged(auth, (activeUser) => {
 });
 
 
-const profileButton = document.getElementById("profileButton");
-profileButton.addEventListener("click",()=>{
-  window.location.href = "../userprofile/profile.html"
-})
 
 
 
