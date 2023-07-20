@@ -44,7 +44,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img class="rounded-5" src="../Assets/profile pic.jfif" alt="" width="35px">
+                  <img class="rounded-5" id="profilePic" src="../Assets/profile pic.jfif" alt="" width="35px" height="35px">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end my-2">
                   <li><a class="dropdown-item" href="../userprofile/profile.html"><i class="fa-solid fa-user"></i>Profile</a></li>
@@ -72,7 +72,7 @@
                 </p>
               </div>
               <div class="activeUserDetail p-3 mt-1" id="userinfo">
-                <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+                <img class="userImg" src="../Assets/profile pic.jfif" alt="" width="35px" height="65px">
                 <h5 class="userDetailName m-1"></h5>
                 <button class="profileBtn container" id="profileButton"><a href="../userprofile/profile.html">Profile</a></button>
                 <p class="userEmail m-1"></p>
@@ -94,7 +94,7 @@
           <div class="col-6 mx-3 p-4">
              <!-- upper Area of post Section -->
             <div class="postBox rounded-3">
-                <img class="rounded-5" src="../Assets/profile pic.jfif" alt="" max-width="40px" height="40px">
+                <img class="rounded-5" id="postUsrImg" src="../Assets/profile pic.jfif" alt="" width="35px" height="35px">
                 <input id="postInputBar" class="container" data-bs-toggle="modal" data-bs-target="#exampleModal" type="text" placeholder="what's on your mind,">
                 
                 <!-- Modal clicking on input bar of post Section -->
@@ -108,7 +108,7 @@
                       </div>
 
                       <div class="modalPostArea container bg-light text-start">
-                        <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+                        <img class="userImg rounded-5" id="modalProfilePic" src="../Assets/profile pic.jfif" alt="" width="35px" height="55px">
                        <p class="userName"></p>
                         <p class="userDisc">Post to everyone</p>
                         <textarea id="textPost" class="container bg-light" placeholder="What do you want to post about?"></textarea>                      
@@ -172,7 +172,7 @@
           <div id="ContentBox" class="my-4">
             <div class="postArea mb-3">
             <div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
-              <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+              <img class="userImg " src="../Assets/profile pic.jfif" alt="" width="35px" height="50px">
               <p class="userName mt-2">Amir khan</p>
               <p id="postTime">10h</p>
               <p class="postText mt-2">Lorem ipsum dolor sit amet consectetur adipisicing 
@@ -220,52 +220,16 @@
             </div>
               <!-- friensRequests -->
 
-              <div class="container-fluid friendList mt-3">
+              <div class="container-fluid friendList mt-3" id="myUserArea">
                 <h5>Requests</h5>
-                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
+                <!-- <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
                   <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
                   <p class="reqPerson">Rashid</p>
                   <p id="mutual" class="position-absolute">8 mutual friends</p>
                   <div class="btn d-flex gap-2">
                     <button class="accept">Accept</button>
                     <button class="reject">Reject</button>
-                  </div>
-                </div>
-                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
-                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
-                  <p class="reqPerson">Naveed</p>
-                  <p id="mutual" class="position-absolute">2 mutual friends</p>
-                  <div class="btn d-flex gap-2">
-                    <button class="accept">Accept</button>
-                    <button class="reject">Reject</button>
-                  </div>
-                </div>
-                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
-                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
-                  <p class="reqPerson">Nabeel</p>
-                  <p id="mutual" class="position-absolute">5 mutual friends</p>
-                  <div class="btn d-flex gap-2">
-                    <button class="accept">Accept</button>
-                    <button class="reject">Reject</button>
-                  </div>
-                </div>
-                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
-                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
-                  <p class="reqPerson">Aqib</p>
-                  <p id="mutual" class="position-absolute">9 mutual friends</p>
-                  <div class="btn d-flex gap-2">
-                    <button class="accept">Accept</button>
-                    <button class="reject">Reject</button>
-                  </div>
-                </div>
-                <div class="friendListBox container d-flex align-items-start gap-2 position-relative mt-3">
-                  <img class="userImg rounded-5" src="../Assets/profile pic.jfif" alt="">
-                  <p class="reqPerson">Rayyan</p>
-                  <p id="mutual" class="position-absolute">10 mutual friends</p>
-                  <div class="btn d-flex gap-2">
-                    <button class="accept">Accept</button>
-                    <button class="reject">Reject</button>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

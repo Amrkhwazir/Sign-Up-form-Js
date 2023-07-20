@@ -9,7 +9,9 @@ import {
   signOut,
   getDocs,
   collection,
-  addDoc, } from "../firebaseConfig.js";
+  addDoc,
+query,
+ } from "../firebaseConfig.js";
 
 
 const logout = document.getElementById('logout');
@@ -21,9 +23,12 @@ const ContentBox = document.getElementById('ContentBox');
 // userdetail
 const userName = document.querySelector('.userName');
 const displayImage = document.querySelector('#displayImage');
-let uploadedImage = "";
+let myUsersArea = document.querySelector('#myUserArea');
 const image_input = document.getElementById('image_input');
 const userinfo = document.getElementById("userinfo");
+const profilePic = document.getElementById("profilePic");
+const postUsrImg = document.getElementById("postUsrImg");
+const modalProfilePic = document.getElementById("modalProfilePic");
 
 let currentActiveUser;
 
@@ -53,10 +58,10 @@ async function getUserData(uid){
 
 if (docSnap.exists()) {
   // console.log("Document data:", docSnap.data());
-  const {firstName,lastName,email} = docSnap.data();
-  console.log(firstName,lastName,email)
+  const {firstName,lastName,email,src} = docSnap.data();
+  console.log(firstName,lastName,email,src)
   // console.log(time)
-  userinfo.innerHTML = ` <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+  userinfo.innerHTML = ` <img class="userImg rounded-5" src="${src}" alt="" width="35px" height="65px">
   <h5 class="userDetailName m-1">${firstName} ${lastName}</h5>
   <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="signupBtn">Profile</button>
   <p class="userEmail m-1">${email}</p>
@@ -64,6 +69,9 @@ if (docSnap.exists()) {
 </div>`
 
 userName.innerHTML = `${firstName}${lastName}`;
+profilePic.src = src
+postUsrImg.src = src
+modalProfilePic.src = src
 } else {
   // docSnap.data() will be undefined in this case
   console.log("No such document!");
@@ -97,11 +105,8 @@ function logoutHandler(){
 }
 
 // for post function
-// userName.innerHTML = `${firstName} ${lastName}`;
 
 postBtn.addEventListener('click', async () => {
-  // console.log("ggdf");
-  // console.log(currentActiveUser);
 
   image_input.addEventListener("change",function (){
     console.log(image_input.value);
@@ -147,7 +152,7 @@ let div = document.createElement('div');
 
   div.innerHTML = `
   <div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
-  <img class="userImg" src="../Assets/profile pic.jfif" alt="">
+  <img class="userImg rounded-5" src="${activeAuthrDetail.src}" alt="" width="35px" height="50px>
   <p class="userName mt-2">${activeAuthrDetail?.firstName}${activeAuthrDetail?.lastName}</p>
   <p id="postTime">2 minutes</p>
   <p class="postText mt-2">${postData}</p>
@@ -161,6 +166,7 @@ let div = document.createElement('div');
   
 });
 }
+
 
 async function getPostUserData(authUid){
   
@@ -200,3 +206,36 @@ function messangerCloseHandler() {
   
   meassangerBox.style.display = "none";
 }
+
+// All user data
+
+async function getAllUser(){
+
+  const q = query(collection(db, "users"));
+
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+
+      console.log(doc.id, " => ", doc.data());
+      const {firstName,lastName,src} = doc.data()
+      console.log(firstName,lastName)
+
+      const columnHtml = document.createElement('div')
+      columnHtml.setAttribute('class', 'friendListBox container d-flex align-items-start gap-2 position-relative mt-3')
+
+      const content = ` <img class="userImg rounded-5 mt-2" src="${src}" alt="" height="40px">
+      <p class="reqPerson">${firstName}</p>
+      <p id="mutual" class="position-absolute">8 mutual friends</p>
+      <div class="btn d-flex gap-2">
+        <button class="accept">See</button>
+        <button class="reject">Ignore</button>
+      </div>`
+
+      columnHtml.innerHTML = content
+
+      myUsersArea.appendChild(columnHtml)
+  });
+}
+
+getAllUser()

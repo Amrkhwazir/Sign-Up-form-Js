@@ -1,9 +1,9 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import {
-    getFirestore, collection, addDoc, setDoc, doc, query, where, getDocs, getDoc,
+    getFirestore, collection, addDoc, setDoc, doc, query, where, getDocs, getDoc, updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import { getStorage,ref } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+import { getStorage,ref, getDownloadURL, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
 
 
@@ -44,4 +44,7 @@ export {
     onAuthStateChanged,
     signOut,
     ref,
+    getDownloadURL,
+    updateDoc,
+    uploadBytesResumable
 };

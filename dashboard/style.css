@@ -81,9 +81,9 @@ width: 350px;
 .dropdown-menu li:hover a i{
     color: gray;
 }
-#displayBox{
-    padding-top: 80px;
-}
+    #displayBox{
+        padding-top: 80px;
+    }
 
 /* main template */
 .col-6{
@@ -181,7 +181,6 @@ color: rgb(50, 94, 255);
     left: 60px;
  }
  .userImg{
-    padding-top: 5px;
     width: 40px;
  }
  .modalMediaBox i{
