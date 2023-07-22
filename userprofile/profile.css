@@ -15,7 +15,7 @@ html{
     z-index: 1 !important;
 }
 .navbar-brand i{
-    color: blueviolet;
+    color: rgb(28, 212, 150);
     font-size: 40px;
 }
 #searchBar{
@@ -38,14 +38,14 @@ width: 350px;
     transition: 1s all ease;
 }
 .nav-item-li:hover{
-    background-color: rgb(180, 100, 255);
+    background-color: rgb(67, 67, 67);
 }
 .nav-item-li i{
     font-size: 18px;
     color: gray;
 }
 .nav-item-li:hover i{
-    color: white;
+    color: rgb(28, 212, 150);
 }
 .fa-bell{
     margin-left: 1px;
@@ -170,3 +170,45 @@ top: 20px;
 #footer{
     background-color: rgb(67, 67, 67);
 }
+
+/* post Area seccion*/
+
+#UserPostArea{
+    margin-left: 65px;
+    padding: 20px;
+    height: 500px;
+}
+#ContentBox{
+    height: 470px;
+    overflow: auto;
+}
+.postArea{
+    background-color: white;
+    margin-top: 20px;
+}
+
+ .postContent{
+    position: relative;
+ }
+ #postTime{
+    position: absolute;
+    bottom: -10px;
+    left: 60px;
+ }
+ .postText{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+ }
+ .postImage{
+    height: 330px;
+    /* border: 1px solid black; */
+ }
+ .postImage .img-fluid{
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid black; */
+ }
+ #image_input{
+    display: none;
+ }

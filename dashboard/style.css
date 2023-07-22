@@ -15,7 +15,7 @@ html{
     z-index: 1 !important;
 }
 .navbar-brand i{
-    color: blueviolet;
+    color: rgb(28, 212, 150);
     font-size: 40px;
 }
 #searchBar{
@@ -29,43 +29,33 @@ width: 350px;
     position: relative;
     background-color: white;
     /* border: 1px solid blueviolet; */
-    margin:0px 18px;
+    margin:8px 14px;
     border-radius: 100%;
     height: 38px;
     width: 38px;
-  padding-left: 1px;
-    margin-top: 3px;
     transition: 1s all ease;
 }
 .nav-item-li:hover{
-    background-color: rgb(180, 100, 255);
+    background-color: rgb(77, 77, 77)
 }
 .nav-item-li i{
     font-size: 18px;
     color: gray;
 }
 .nav-item-li:hover i{
-    color: white;
+    color: rgb(28, 212, 150);
 }
 .fa-bell{
-    margin-left: 1px;
+    margin-left: 3px;
 }
 .fa-house{
-    margin-left: -1px;
+    margin-left: 1px;
 }
-.nav-item-li p{
-    position: absolute;
-    left: -10px;
-    bottom: -31px;
-    font-size: 11px;
-    font-weight: 500;
+
+.fa-message{
+    margin-left: 2px;
 }
-#homeText{
-    margin-left: 14px;
-}
-#messageText{
-    margin-left: 8px;
-}
+
 .dropdown-menu{
     background-color: gray !important;
 }
@@ -219,13 +209,15 @@ color: rgb(50, 94, 255);
     top: 50px;
     left: 15px;
  }
- /* .postImage{
+ .postImage{
+    height: 330px;
+    /* border: 1px solid black; */
+ }
+ .postImage .img-fluid{
+    height: 100%;
     width: 100%;
-    height: 300px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
- } */
+    /* border: 1px solid black; */
+ }
  #image_input{
     display: none;
  }

@@ -9,7 +9,12 @@ import {
     ref,
     getDownloadURL,
     uploadBytesResumable,
-    updateDoc
+    updateDoc,
+    query,
+    collection,
+    where,
+    getDocs,
+
      } from "../firebaseConfig.js";
   
 const userName = document.querySelector('.userName');
@@ -23,6 +28,7 @@ const updateProfileBtn = document.getElementById('updateProfileBtn');
 const profilePic = document.getElementById('profilePic');
 const profileImg = document.querySelector('.userImg');
 const userphn = document.querySelector('.userphn');
+const myUsersArea = document.getElementById('ContentBox')
 
 console.log(profileImg.src)
  
@@ -41,6 +47,7 @@ onAuthStateChanged(auth, (activeUser) => {
       getUserData(uid)
       // getPostData(uid)
       currentUserActive = uid;
+      
 
   } else {
       
@@ -129,6 +136,8 @@ await updateDoc(washingtonRef, {
     userphn.innerHTML = `${phoneNumberFormDB}`
     profileImg.src = src
     profilePic.src = src
+
+    getPostData(firstName, src, lastName)
     } else {
     
       console.log("No such document!");
@@ -139,18 +148,37 @@ await updateDoc(washingtonRef, {
     };
     
 
-//  async function getPostData(uid){
-//     // console.log(uid)
-//     try {
-//         const q = query(collection(db, "posts",), );
-//         // console.log(q)
-//         const querySnapshot = await getDocs(q);
-//         querySnapshot.forEach((doc) => {
-//           // doc.data() is never undefined for query doc snapshots
-//           // console.log(doc.id, " => ", doc.data());
-//         });
-//     } catch (error) {
-//         console.log(error,"data not found")
-//     }
+ async function getPostData(firstName,src,lastName){
+    // console.log(uid)
+    try {
+        const q = query(collection(db, "posts",), where("postPersonId", "==", currentUserActive) );
+        // console.log(q)
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          const {postData,postUrl} = doc.data()
 
-//     }
+          const columnHtml = document.createElement('div')
+      columnHtml.setAttribute('class', 'postArea mb-3')
+
+      const content = `<div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
+      <img class="userImg mt-1 rounded-5" src="${src}" alt="" width="40px" height="40px">
+      <p class="userName mt-1 mx-1">${firstName} ${lastName}</p>
+      <p id="postTime">10h</p>
+      <p class="postText mt-2">${postData}</p>
+    </div>
+    <div class="postImage mt-5" id="displayImage">
+      <img class="img-fluid" src=${postUrl || '../Assets/photo-1481349518771-20055b2a7b24.jfif'} alt="">
+    </div>
+      `
+
+      columnHtml.innerHTML = content
+
+      myUsersArea.appendChild(columnHtml)
+        });
+    } catch (error) {
+        console.log(error,"data not found")
+    }
+
+    }

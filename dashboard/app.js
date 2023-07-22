@@ -10,7 +10,11 @@ import {
   getDocs,
   collection,
   addDoc,
-query,
+  ref,
+  query,
+  storage,
+  getDownloadURL,
+  uploadBytesResumable
  } from "../firebaseConfig.js";
 
 
@@ -47,10 +51,6 @@ onAuthStateChanged(auth, (activeUser) => {
   }
 });
 
-
-
-
-
 async function getUserData(uid){
   try {
     const docRef = doc(db, "users", uid);
@@ -61,7 +61,7 @@ if (docSnap.exists()) {
   const {firstName,lastName,email,src} = docSnap.data();
   console.log(firstName,lastName,email,src)
   // console.log(time)
-  userinfo.innerHTML = ` <img class="userImg rounded-5" src="${src}" alt="" width="35px" height="65px">
+  userinfo.innerHTML = ` <img class="userImg rounded-5" src="${src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif " alt="" width="35px" height="65px">
   <h5 class="userDetailName m-1">${firstName} ${lastName}</h5>
   <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="signupBtn">Profile</button>
   <p class="userEmail m-1">${email}</p>
@@ -72,6 +72,7 @@ userName.innerHTML = `${firstName}${lastName}`;
 profilePic.src = src
 postUsrImg.src = src
 modalProfilePic.src = src
+
 } else {
   // docSnap.data() will be undefined in this case
   console.log("No such document!");
@@ -81,55 +82,64 @@ modalProfilePic.src = src
   }
 };
 
-// fileupload
-photoIcon.addEventListener('click', fileOpenHandler)
-function fileOpenHandler(){
-    image_input.click();
-}
-
-// logout function
-
-logout.addEventListener('click',logoutHandler)
-
-function logoutHandler(){
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    console.log("signout successfully")
-    location.href = "../index.html";
-
-}).catch((error) => {
-    // An error happened.
-    console.log(error);
-});
-
-}
-
 // for post function
 
 postBtn.addEventListener('click', async () => {
-
-  image_input.addEventListener("change",function (){
-    console.log(image_input.value);
-    const reader = new FileReader();
-    console.log(reader);
-    reader.addEventListener("load", ()=> {
-      uploadedImage = reader.result;
-      console.log(uploadedImage);
-      displayImage.style.backgroundImage = `url(${uploadedImage})`
-    });
-    reader.readAsDataURL(this.files[0]);
-  })
-
-  try {
-    const docRef = await addDoc(collection(db, "posts"), {
-      postPersonId: currentActiveUser,
-      postData: textPost.value,
-    });
-    console.log("Document written with ID: ", docRef.id);
-    getPost()
-  } catch (e) {
-    console.error("Error adding document: ", e);
+  
+      // console.log(image_input.files[0].name)
+  
+  const file = image_input.files[0]
+  const metadata = {
+    contentType: 'image/jpeg'
   };
+  
+  const storageRef = ref(storage, 'posts/' + file.name);
+  const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+  
+  uploadTask.on('state_changed',
+    (snapshot) => {
+  
+         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case 'paused':
+          console.log('Upload is paused');
+          break;
+        case 'running':
+          console.log('Upload is running');
+          break;
+      }
+    }, 
+    (error) => {
+     
+      switch (error.code) {
+        case 'storage/unauthorized':
+  
+          break;
+        case 'storage/canceled':
+  
+          break;
+  
+  
+        case 'storage/unknown':
+  
+          break;
+      }
+    }, 
+    () => {
+   
+      getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+        console.log('File available at', downloadURL);
+  
+        const docRef = await addDoc(collection(db, "posts"), {
+          postPersonId: currentActiveUser,
+          postData: textPost.value,
+          postUrl: downloadURL
+        });
+        console.log("Document written with ID: ", docRef.id);
+        getPost()
+  });
+  });
 });
 
 
@@ -138,9 +148,9 @@ async function getPost(){
   const querySnapshot = await getDocs(collection(db, "posts"));
 querySnapshot.forEach(async(doc) => {
   // doc.data() is never undefined for query doc snapshots
-  // console.log(doc.id, " => ", doc.data());
-  const {postData,postPersonId,url} = doc.data()
-  console.log(url)
+  console.log(doc.id, " => ", doc.data());
+  const {postData,postPersonId,postUrl} = doc.data()
+  console.log(postUrl,postData,postPersonId)
   
   const activeAuthrDetail = await getPostUserData(postPersonId)
   console.log(activeAuthrDetail);
@@ -152,13 +162,13 @@ let div = document.createElement('div');
 
   div.innerHTML = `
   <div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
-  <img class="userImg rounded-5" src="${activeAuthrDetail.src}" alt="" width="35px" height="50px>
+  <img class="userImg rounded-5" src="${activeAuthrDetail.src}" alt="" height="45px>
   <p class="userName mt-2">${activeAuthrDetail?.firstName}${activeAuthrDetail?.lastName}</p>
   <p id="postTime">2 minutes</p>
   <p class="postText mt-2">${postData}</p>
 </div>
 <div class="postImage mt-4">
-<img class="img-fluid" src="../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="">
+<img class="img-fluid img-fluid"" src=${postUrl || '../Assets/photo-1481349518771-20055b2a7b24.jfif'} alt="">
 </div>
   `
   ContentBox.appendChild(div)
@@ -176,7 +186,7 @@ const docSnap = await getDoc(docRef);
 if (docSnap.exists()) {
   console.log("Document data:", docSnap.data());
   return docSnap.data()
-  // console.log(firstName,lastName)
+  console.log(firstName,lastName)
   
 } else {
   
@@ -184,6 +194,48 @@ if (docSnap.exists()) {
   console.log("No such document!");
 }
 }
+
+// All user data
+
+async function getAllUser(){
+
+  const q = query(collection(db, "users"));
+
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+
+      // console.log(doc.id, " => ", doc.data());
+      const {firstName,src} = doc.data()
+      // console.log(firstName,lastName)
+
+      const columnHtml = document.createElement('div')
+      columnHtml.setAttribute('class', 'friendListBox container d-flex align-items-start gap-2 position-relative mt-3')
+
+      const content = ` <img class="userImg rounded-5 mt-2" src=${ src || '../Assets/profile pic.jfif'} alt="" height="40px">
+      <p class="reqPerson">${firstName}</p>
+      <p id="mutual" class="position-absolute">8 mutual friends</p>
+      <div class="btn d-flex gap-2">
+        <button class="accept">See</button>
+        <button class="reject">Ignore</button>
+      </div>`
+
+      columnHtml.innerHTML = content
+
+      myUsersArea.appendChild(columnHtml)
+  });
+}
+
+getAllUser()
+
+
+// fileupload
+photoIcon.addEventListener('click', fileOpenHandler)
+function fileOpenHandler(){
+    image_input.click();
+}
+
+
 // messanger shown display
 
 let messangerIcon = document.querySelector('.messageIcon')
@@ -207,35 +259,20 @@ function messangerCloseHandler() {
   meassangerBox.style.display = "none";
 }
 
-// All user data
 
-async function getAllUser(){
+// logout function
 
-  const q = query(collection(db, "users"));
+logout.addEventListener('click',logoutHandler)
 
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
+function logoutHandler(){
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    console.log("signout successfully")
+    location.href = "../index.html";
 
-      console.log(doc.id, " => ", doc.data());
-      const {firstName,lastName,src} = doc.data()
-      console.log(firstName,lastName)
+}).catch((error) => {
+    // An error happened.
+    console.log(error);
+});
 
-      const columnHtml = document.createElement('div')
-      columnHtml.setAttribute('class', 'friendListBox container d-flex align-items-start gap-2 position-relative mt-3')
-
-      const content = ` <img class="userImg rounded-5 mt-2" src="${src}" alt="" height="40px">
-      <p class="reqPerson">${firstName}</p>
-      <p id="mutual" class="position-absolute">8 mutual friends</p>
-      <div class="btn d-flex gap-2">
-        <button class="accept">See</button>
-        <button class="reject">Ignore</button>
-      </div>`
-
-      columnHtml.innerHTML = content
-
-      myUsersArea.appendChild(columnHtml)
-  });
 }
-
-getAllUser()
