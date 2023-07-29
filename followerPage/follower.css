@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* navbar */
+
+#navbar{
+    background-color: whitesmoke !important;
+    position: fixed !important;
+    z-index: 1 !important;
+}
+.navbar-brand i{
+    color: rgb(28, 212, 150);
+    font-size: 40px;
+}
+#searchBar{
+width: 350px;
+/* background-color: gray; */
+}
+.nav-item-li{
+    position: relative;
+    background-color: white;
+    /* border: 1px solid blueviolet; */
+    margin:0px 18px;
+    border-radius: 100%;
+    height: 38px;
+    width: 38px;
+     padding-left: 1px;
+    margin-top: 6px;
+    transition: 1s all ease;
+}
+.nav-item-li:hover{
+    background-color: rgb(67, 67, 67);
+}
+.nav-item-li i{
+    font-size: 18px;
+    color: gray;
+}
+.nav-item-li:hover i{
+    color: rgb(28, 212, 150);
+}
+.fa-bell{
+    margin-left: 1px;
+}
+.fa-house{
+    margin-left: -1px;
+}
+.nav-item-li p{
+    position: absolute;
+    left: -10px;
+    bottom: -31px;
+    font-size: 11px;
+    font-weight: 500;
+}
+#homeText{
+    /* margin-left: 14px; */
+}
+#messageText{
+    /* margin-left: 8px; */
+}
+.dropdown-menu{
+    background-color: gray !important;
+}
+.dropdown-menu li a{
+    color: white;
+    
+
+}
+.dropdown-menu li a i{
+    color: white;
+    margin-right: 6px !important;
+}
+.dropdown-menu li:hover a i{
+    color: gray;
+}
+/* userdetailArea */
+#profileBox{
+    max-width: 85% !important;
+    padding-top: 50px !important;
+    margin-left: 100px;
+}
+.userDetailArea{
+    position: relative;
+    background-color: white;
+}
+.activeUserDetail{
+    background-color: whitesmoke;
+    font-weight: 500;
+}
+.background{
+   height: 240px;
+   background-color: rgb(50, 50, 50);
+   color: white;
+   font-weight: 500;
+   border-radius: 10px 10px 10px 10px;
+}
+#follower{
+   font-size: 18px !important;
+   left: 15px;
+}
+#following{
+   font-size: 18px !important;
+   right: 15px !important;
+}
+
+.userDetailArea img{
+   position: absolute;
+   top: 160px;
+   left: 43%;
+   width: 140px;
+   height: 150px;
+   border-radius: 50%;
+}
+.userDetail{
+    max-width: 700px;
+}
+
+.profileBtn:active{
+   background-color: rgb(67, 67, 67);
+   opacity: 0.1;
+   transform: scale(0.8);
+}

@@ -159,10 +159,10 @@ color: rgb(50, 94, 255);
     margin-top: 15px;
  }
  .userName{
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
     font-weight: 500;
     position: absolute;
-    top: 5px;
+    top: 0px;
     left: 60px;
  }
  .userDisc{
@@ -198,16 +198,17 @@ color: rgb(50, 94, 255);
  }
  .postContent{
     position: relative;
+
  }
  #postTime{
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 58px;
  }
  .postText{
     position: absolute;
-    top: 50px;
-    left: 15px;
+    top: 42px;
+    left: 20px;
  }
  .postImage{
     height: 330px;
@@ -222,6 +223,15 @@ color: rgb(50, 94, 255);
     display: none;
  }
 
+ .buttons{
+   display: flex;
+   padding-top: 10px;
+   justify-content: space-around;
+ }
+
+ .commentInputArea{
+   padding: 10px;
+ }
  .col{
     height: 600px !important;
     overflow-y: auto;

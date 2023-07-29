@@ -59,7 +59,7 @@ async function getUserData(uid){
 if (docSnap.exists()) {
   // console.log("Document data:", docSnap.data());
   const {firstName,lastName,email,src} = docSnap.data();
-  console.log(firstName,lastName,email,src)
+  // console.log(firstName,lastName,email,src)
   // console.log(time)
   userinfo.innerHTML = ` <img class="userImg rounded-5" src="${src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif " alt="" width="35px" height="65px">
   <h5 class="userDetailName m-1">${firstName} ${lastName}</h5>
@@ -83,7 +83,7 @@ modalProfilePic.src = src
 };
 
 // for post function
-
+getPost()
 postBtn.addEventListener('click', async () => {
   
       // console.log(image_input.files[0].name)
@@ -147,13 +147,13 @@ async function getPost(){
   
   const querySnapshot = await getDocs(collection(db, "posts"));
 querySnapshot.forEach(async(doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
+  
+  // console.log(doc.id, " => ", doc.data());
   const {postData,postPersonId,postUrl} = doc.data()
-  console.log(postUrl,postData,postPersonId)
+  // console.log(postUrl,postData,postPersonId)
   
   const activeAuthrDetail = await getPostUserData(postPersonId)
-  console.log(activeAuthrDetail);
+  // console.log(activeAuthrDetail);
   
   // ContentBox.innerHTML = "";
   
@@ -162,14 +162,24 @@ let div = document.createElement('div');
 
   div.innerHTML = `
   <div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
-  <img class="userImg rounded-5" src="${activeAuthrDetail.src}" alt="" height="45px>
-  <p class="userName mt-2">${activeAuthrDetail?.firstName}${activeAuthrDetail?.lastName}</p>
+  <img class="userImg rounded-5" src="${activeAuthrDetail.src}" alt="" height="40px">
+  <p class="userName mt-2">${activeAuthrDetail?.firstName} ${activeAuthrDetail?.lastName}</p>
   <p id="postTime">2 minutes</p>
   <p class="postText mt-2">${postData}</p>
 </div>
 <div class="postImage mt-4">
-<img class="img-fluid img-fluid"" src=${postUrl || '../Assets/photo-1481349518771-20055b2a7b24.jfif'} alt="">
+<img class="img-fluid" src="${postUrl}" alt="">
 </div>
+<div class="buttons">
+      <p>Like</p>
+      <p>Comment</p>
+       <p>Share</p>
+  </div>
+   <div class="commentInputArea">
+       <img src="../assets/avatarDummy.png" class="profilePicture" alt="">
+      <input id="commentInputBox" type="text" class="commentInput">
+      <button>Comment</button>
+   </div>
   `
   ContentBox.appendChild(div)
   textPost.value = ''
@@ -184,9 +194,9 @@ const docRef = doc(db, "users", authUid);
 const docSnap = await getDoc(docRef);
 
 if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
+  // console.log("Document data:", docSnap.data());
   return docSnap.data()
-  console.log(firstName,lastName)
+  // console.log(firstName,lastName)
   
 } else {
   
@@ -212,11 +222,11 @@ async function getAllUser(){
       const columnHtml = document.createElement('div')
       columnHtml.setAttribute('class', 'friendListBox container d-flex align-items-start gap-2 position-relative mt-3')
 
-      const content = ` <img class="userImg rounded-5 mt-2" src=${ src || '../Assets/profile pic.jfif'} alt="" height="40px">
+      const content = ` <img class="userImg rounded-5 mt-2" src="${src || '../Assets/profile pic.jfif'}" alt="" height="40px">
       <p class="reqPerson">${firstName}</p>
       <p id="mutual" class="position-absolute">8 mutual friends</p>
       <div class="btn d-flex gap-2">
-        <button class="accept">See</button>
+        <button class="accept" onclick="followPersonProfile()">See</button>
         <button class="reject">Ignore</button>
       </div>`
 
@@ -224,8 +234,12 @@ async function getAllUser(){
 
       myUsersArea.appendChild(columnHtml)
   });
+} 
+function followPersonProfile(){
+window.location.href = "../followerPage/follower.html"
 }
 
+window.followPersonProfile = followPersonProfile
 getAllUser()
 
 
@@ -233,30 +247,6 @@ getAllUser()
 photoIcon.addEventListener('click', fileOpenHandler)
 function fileOpenHandler(){
     image_input.click();
-}
-
-
-// messanger shown display
-
-let messangerIcon = document.querySelector('.messageIcon')
-let meassangerBox = document.querySelector('.massangerBox');
-
-messangerIcon.addEventListener('click', messangerDisplayHandler);
-
-function messangerDisplayHandler(){
-
-  meassangerBox.style.display = "block";
-}
-
-// messanger close display
-
-let btnClose = document.querySelector('.closeBtn');
-
-btnClose.addEventListener('click', messangerCloseHandler);
-
-function messangerCloseHandler() {
-  
-  meassangerBox.style.display = "none";
 }
 
 

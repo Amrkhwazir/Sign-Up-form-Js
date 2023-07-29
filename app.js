@@ -9,6 +9,7 @@ let loginBtn = document.getElementById('loginBtn');
 
 
 
+
 function loginHandler() {
 
 signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
@@ -41,6 +42,8 @@ let dateTime = document.getElementById('dateTime');
 
 // buttons
 let signupBtn = document.getElementById('signupBtn');
+signupBtn.addEventListener('click',signUpnHandler);
+
 
 async function signUpnHandler() {
     try {
@@ -54,11 +57,11 @@ async function signUpnHandler() {
 //    console.log(response.user.uid,"user milgyaa")
 
 }
-  }
- catch (error) {
-    const errorMessage = error.message;
-    console.log(errorMessage)
-    
+}
+catch (error) {
+  const errorMessage = error.message;
+  console.log(errorMessage)
+  
 }};
 
 
@@ -82,8 +85,3 @@ async function adddata(uid){
     
 }
 
-signupBtn.addEventListener('click',signUpnHandler);
-// function genderHandler(g){
-//     // console.log(g + "handler working")
-//     gender = g
-// };

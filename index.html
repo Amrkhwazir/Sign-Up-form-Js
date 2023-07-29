@@ -16,7 +16,7 @@
   <!-- login in -->
   
   <div class="container d-flex justify-content-around pt-5">
-    <div class="container d-flex flex-column align-items-center" style="border: 1px solid black;
+    <div class="container d-flex flex-column align-items-center" style="
     box-shadow: 1px 1px 5px 3px rgb(208, 208, 209); width: 35%; height: 490px; padding-top: 25px; background-color: white;">
         
         <h1 style="margin-bottom: 25px;">Logo Here</h1>
@@ -49,52 +49,31 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
-                  <div class="modal-header modalHeading_S d-flex flex-column align-items-start">
+                  <div class="modal-header modalHeading_S d-flex flex-column align-items-start" id="modalHeadArea">
                       <h5 class="modal-title" id="exampleModalLabel">SignUp</h5>
                       <h6 class="modal-title" id="exampleModalLabel">It's quick and easy</h6>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <form>
                         <div class="container-fluid mb-3 d-flex gap-3">
-                          <input type="text" class="form-control" id="firstName" placeholder="First Name">
-                          <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                          <input type="text" class="form-control border border-dark" id="firstName" placeholder="First Name">
+                          <input type="text" class="form-control border border-dark" id="lastName" placeholder="Last Name">
                         </div>  
                         <div class="container-fluid mb-3 d-flex gap-3">
-                          <input type="email" class="form-control" id="signEmail" placeholder="Email address">
-                          <input type="password" class="form-control" id="signPassword" placeholder="Password">
+                          <input type="email" class="form-control border border-dark" id="signEmail" placeholder="Email address">
+                          <input type="password" class="form-control border border-dark" id="signPassword" placeholder="Password">
                         </div>  
                         <div class="container-fluid mb-3 d-flex gap-3">
-                          <input type="number" class="form-control" id="phoneNumber" placeholder="Phone number">
+                          <input type="number" class="form-control border border-dark" id="phoneNumber" placeholder="Phone number">
                         </div>  
                         <div class="container-fluid mb-3 d-flex gap-3">
-                          <input type="date" class="form-control" id="dateTime" >
+                          <input type="date" class="form-control border border-dark" id="dateTime" >
                         </div>  
-
-                        <!-- <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="genderHandler('Male')">
-                          <label class="form-check-label" for="flexRadioDefault1">
-                            Male
-                          </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="genderHandler('Female')">
-                          <label class="form-check-label" for="flexRadioDefault2">
-                            Female
-                          </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="genderHandler('Custom')">
-                          <label class="form-check-label" for="flexRadioDefault2">
-                            Custom
-                          </label>
-                        </div> -->
-
                       </form>
                   </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="signupBtn">Signup</button>
+                  <div class="modal-footer" id="footer">
+                      <button type="button" class="btn" data-bs-dismiss="modal" id="closeBtn">Close</button>
+                      <button type="button" class="btn" data-bs-dismiss="modal" id="signupBtn">Signup</button>
                   </div>
               </div>
           </div>
@@ -102,8 +81,20 @@
   </div>
 
 
-                
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>     
-    <script type="module" src="app.js"></script>
+  <!-- loader -->
+
+  <div class="container" id="loader4Box">
+    <div class="row">
+      <div class="col-sm-6 text-center">
+        <div class="loader4" id="loader"></div>
+      </div>
+    </div>
+</div>  
+
+
+<script type="module" src="app.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  
 </body>
 </html>
