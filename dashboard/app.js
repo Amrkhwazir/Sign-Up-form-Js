@@ -14,10 +14,14 @@ import {
   query,
   storage,
   getDownloadURL,
-  uploadBytesResumable
+  uploadBytesResumable,
+  serverTimestamp,
+  orderBy,
+  limit,
+
  } from "../firebaseConfig.js";
 
-
+// console.log(serverTimestamp())
 const logout = document.getElementById('logout');
 const photoIcon = document.getElementById('photoIcon');
 const postBtn = document.getElementById('postBtn');
@@ -63,15 +67,15 @@ if (docSnap.exists()) {
   // console.log(time)
   userinfo.innerHTML = ` <img class="userImg rounded-5" src="${src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif " alt="" width="35px" height="65px">
   <h5 class="userDetailName m-1">${firstName} ${lastName}</h5>
-  <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="signupBtn">Profile</button>
+  <button type="button" class="profileBtn container rounded-0" data-bs-dismiss="modal" id="profileButton">Profile</button>
   <p class="userEmail m-1">${email}</p>
   <p class="userDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia ab velit non commodi unde odit,</p>
 </div>`
 
-userName.innerHTML = `${firstName}${lastName}`;
-profilePic.src = src
-postUsrImg.src = src
-modalProfilePic.src = src
+userName.innerHTML = `${firstName} ${lastName}`;
+profilePic.src = `${src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif "`
+postUsrImg.src = `${src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif "`
+modalProfilePic.src = `${src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif "`
 
 } else {
   // docSnap.data() will be undefined in this case
@@ -85,7 +89,7 @@ modalProfilePic.src = src
 // for post function
 getPost()
 postBtn.addEventListener('click', async () => {
-  
+  ContentBox.innerHTML = ""
       // console.log(image_input.files[0].name)
   
   const file = image_input.files[0]
@@ -134,7 +138,8 @@ postBtn.addEventListener('click', async () => {
         const docRef = await addDoc(collection(db, "posts"), {
           postPersonId: currentActiveUser,
           postData: textPost.value,
-          postUrl: downloadURL
+          postUrl: downloadURL,
+          time: serverTimestamp()
         });
         console.log("Document written with ID: ", docRef.id);
         getPost()
@@ -145,38 +150,49 @@ postBtn.addEventListener('click', async () => {
 
 async function getPost(){
   
-  const querySnapshot = await getDocs(collection(db, "posts"));
+  const querySnapshot = await getDocs(query(collection(db, "posts"), orderBy("time", "desc")));
 querySnapshot.forEach(async(doc) => {
   
   // console.log(doc.id, " => ", doc.data());
-  const {postData,postPersonId,postUrl} = doc.data()
-  // console.log(postUrl,postData,postPersonId)
+  const {postData,postPersonId,postUrl, time} = doc.data()
+  
   
   const activeAuthrDetail = await getPostUserData(postPersonId)
-  // console.log(activeAuthrDetail);
+  console.log(activeAuthrDetail);
   
   // ContentBox.innerHTML = "";
   
 let div = document.createElement('div');
-  div.setAttribute('class', 'postArea mb-3' )
+  div.setAttribute('class', 'postArea mb-3 position-relative' )
 
   div.innerHTML = `
   <div class="postContent container-fluid py-2 rounded-2 d-flex direction-column">
-  <img class="userImg rounded-5" src="${activeAuthrDetail.src}" alt="" height="40px">
+  <img class="userImg rounded-5" src="${activeAuthrDetail?.src} || ../Assets/photo-1481349518771-20055b2a7b24.jfif" alt="" height="40px">
   <p class="userName mt-2">${activeAuthrDetail?.firstName} ${activeAuthrDetail?.lastName}</p>
-  <p id="postTime">2 minutes</p>
+  <p id="postTime">${new Date(time.seconds * 1000).toLocaleString()}</p>
   <p class="postText mt-2">${postData}</p>
 </div>
 <div class="postImage mt-4">
 <img class="img-fluid" src="${postUrl}" alt="">
 </div>
+${postPersonId === currentActiveUser ? `
+<div class="dropdown position-absolute top-0 end-0" id="postDropDown">
+  <button class="btn dropdown-toggle" id="dropDownToggle" type="button"
+       data-bs-toggle="dropdown" aria-expanded="false">
+       :
+   </button>
+   <ul class="dropdown-menu bg-light">
+       <li class="dropdown-item">Edit</li>
+       <li class="dropdown-item">Delete</li>
+   </ul>
+   </div>` : ""}
 <div class="buttons">
       <p>Like</p>
       <p>Comment</p>
        <p>Share</p>
   </div>
    <div class="commentInputArea">
-       <img src="../assets/avatarDummy.png" class="profilePicture" alt="">
+       <img src="" class="profilePicture" alt="">
       <input id="commentInputBox" type="text" class="commentInput">
       <button>Comment</button>
    </div>
@@ -194,7 +210,7 @@ const docRef = doc(db, "users", authUid);
 const docSnap = await getDoc(docRef);
 
 if (docSnap.exists()) {
-  // console.log("Document data:", docSnap.data());
+  console.log("Document data:", docSnap.data());
   return docSnap.data()
   // console.log(firstName,lastName)
   

@@ -237,6 +237,21 @@ color: rgb(50, 94, 255);
     overflow-y: auto;
     background-color: rgb(243, 243, 243);
  }
+ #postDropDown{
+   top: 10px !important;
+   right: 10px !important;
+ }
+ #dropDownToggle{
+   background-color: rgb(77, 77, 77);
+   border: none;
+   color:  white;
+ }
+
+ #postDropDown ul li:hover{
+    cursor: pointer;
+   background-color: rgb(77, 77, 77);
+   color: white;
+ }
 
  /* userdetailArea */
  .userDetailArea{
@@ -366,3 +381,5 @@ font-size: 13px;
  .friendListBox .btn .accept{
     background-color: rgb(28, 212, 150) !important;
  }
+
+ 
